@@ -1,21 +1,20 @@
 #pragma once
-
+#include <SMHashlibrary_EXPORT.h>
 #include <Baz.hpp>
-#include <Demo_EXPORT.h>
 #include "spdlog/spdlog.h"
 
-namespace Demo
+namespace SMHashlibrary
 {
 
-class DEMO_EXPORT Ba
+class SMHASHLIBRARY_EXPORT Ba
 	{
  public:
   static void say() {
     Baz::say();
-#if (FOO_Demo_DEBUG)
-    const char* m = "Demo.hpp (Debug)";
+#if (FOO_SMHashlibrary_DEBUG)
+    const char* m = "SMHashlibrary.hpp (Debug)";
 #else
-    const char* m = "Demo.hpp (Not debug)";
+    const char* m = "SMHashlibrary.hpp (Not debug)";
 #endif
     SPDLOG_INFO("{}", m);
     cpp_say();

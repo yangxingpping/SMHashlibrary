@@ -4,6 +4,6 @@
 int main()
 {
   SPDLOG_INFO("Hello, Boo!");
-  Demo::Ba::say();
+  SMHashlibrary::Ba::say();
   return 0;
 }

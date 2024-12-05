@@ -1,7 +1,7 @@
 #include <Baz.hpp>
 #include "spdlog/spdlog.h"
 
-namespace Demo
+namespace SMHashlibrary
 {
 	void Baz::cpp_say()
 	{

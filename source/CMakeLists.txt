@@ -1,7 +1,7 @@
 
 cmake_minimum_required(VERSION 3.25) # GENERATOR_IS_MULTI_CONFIG
 
-project(Demo VERSION 1.2.3)
+project(SMHashlibrary VERSION 1.2.3)
 
 
 if(MSVC)
@@ -34,28 +34,28 @@ endif()
 ####
 # Create targets
 aux_source_directory(./ A)
-add_library(Demo ${A})
+add_library(SMHashlibrary ${A})
 
-target_link_libraries(Demo PRIVATE spdlog::spdlog)
+target_link_libraries(SMHashlibrary PRIVATE spdlog::spdlog)
 
 ####
 # Properties of targets
 
 # Add definitions for targets
 # Values:
-#   * Debug: -DFOO_Demo_DEBUG=1
-#   * Release: -DFOO_Demo_DEBUG=0
-#   * other: -DFOO_Demo_DEBUG=0
-target_compile_definitions(Demo PUBLIC "Demo_DEBUG=$<CONFIG:Debug>")
+#   * Debug: -DFOO_SMHashlibrary_DEBUG=1
+#   * Release: -DFOO_SMHashlibrary_DEBUG=0
+#   * other: -DFOO_SMHashlibrary_DEBUG=0
+target_compile_definitions(SMHashlibrary PUBLIC "SMHashlibrary_DEBUG=$<CONFIG:Debug>")
 
 set(generated_headers "${CMAKE_CURRENT_BINARY_DIR}/generated_headers")
-set(Demo_export "${generated_headers}/Demo_EXPORT.h")
+set(SMHashlibrary_export "${generated_headers}/SMHashlibrary_EXPORT.h")
 
 include(GenerateExportHeader)
-generate_export_header(Demo EXPORT_FILE_NAME ${Demo_export})
+generate_export_header(SMHashlibrary EXPORT_FILE_NAME ${SMHashlibrary_export})
 
 target_include_directories(
-    Demo PUBLIC
+    SMHashlibrary PUBLIC
     "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>"
     "$<BUILD_INTERFACE:${generated_headers}>"
 )
@@ -94,7 +94,7 @@ configure_package_config_file(
 )
 
 install(
-    TARGETS Demo
+    TARGETS SMHashlibrary
     EXPORT "${TARGETS_EXPORT_NAME}"
     LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
     ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
@@ -103,7 +103,7 @@ install(
 )
 
 # Headers:
-#   * Source/foo/Demo.hpp -> <prefix>/include/foo/Demo.hpp
+#   * Source/foo/SMHashlibrary.hpp -> <prefix>/include/foo/SMHashlibrary.hpp
 #   * Source/foo/Baz.hpp -> <prefix>/include/foo/Baz.hpp
 install(
     DIRECTORY "./"
@@ -112,9 +112,9 @@ install(
 )
 
 # Export headers:
-#   * ${CMAKE_CURRENT_BINARY_DIR}/.../Demo_EXPORT.h -> <prefix>/include/Demo_EXPORT.h
+#   * ${CMAKE_CURRENT_BINARY_DIR}/.../SMHashlibrary_EXPORT.h -> <prefix>/include/SMHashlibrary_EXPORT.h
 install(
-    FILES "${Demo_export}"
+    FILES "${SMHashlibrary_export}"
     DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
 )
 

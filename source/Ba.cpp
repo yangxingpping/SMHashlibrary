@@ -1,14 +1,14 @@
 #pragma once
 #include <Ba.hpp>
 #include "spdlog/spdlog.h"
-namespace Demo
+namespace SMHashlibrary
 {
 
 void Ba::cpp_say() {
-#if (FOO_Demo_DEBUG)
-  const char* m = "Demo.cpp (Debug)";
+#if (FOO_SMHashlibrary_DEBUG)
+  const char* m = "SMHashlibrary.cpp (Debug)";
 #else
-  const char* m = "Demo.cpp (Not debug)";
+  const char* m = "SMHashlibrary.cpp (Not debug)";
 #endif
   SPDLOG_INFO(m);
 }
